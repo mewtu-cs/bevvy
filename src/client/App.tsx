@@ -1,10 +1,11 @@
 import React from 'react';
+import {Button} from '@mui/material';
 
 const App = () => {
   return (
-    <div>
+    <Button>
       Hello from App.tsx
-    </div>
+    </Button>
   )
 }
 
