@@ -30,14 +30,78 @@ app.use(
   }
 );
 
-app.post('/api/newDrink', (
+app.post('/api/confirmBirthday', (
+  err: ServerError,
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Response => {
+  const defaultErr: ServerError = {
+    log: 'Error in confirm birthday',
+    status: 400,
+    message: { err: 'An error occurred' },
+  };
+  const errorObj: ServerError = Object.assign({}, defaultErr, err);
+  console.log(errorObj.log);
+  return res.status(errorObj.status).json(errorObj.message);
+})
+
+app.post('/api/confirmCookie', (
+  err: ServerError,
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Response => {
+  const defaultErr: ServerError = {
+    log: 'Error in confirm cookie',
+    status: 400,
+    message: { err: 'An error occurred' },
+  };
+  const errorObj: ServerError = Object.assign({}, defaultErr, err);
+  console.log(errorObj.log);
+  return res.status(errorObj.status).json(errorObj.message);
+})
+
+app.post('/api/getDrink', (
+  err: ServerError,
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Response => {
+  const defaultErr: ServerError = {
+    log: 'Error in getting drink',
+    status: 400,
+    message: { err: 'An error occurred' },
+  };
+  const errorObj: ServerError = Object.assign({}, defaultErr, err);
+  console.log(errorObj.log);
+  return res.status(errorObj.status).json(errorObj.message);
+})
+
+app.post('/api/saveDrink', (
+  err: ServerError,
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Response => {
+  const defaultErr: ServerError = {
+    log: 'Error in saving drink',
+    status: 400,
+    message: { err: 'An error occurred' },
+  };
+  const errorObj: ServerError = Object.assign({}, defaultErr, err);
+  console.log(errorObj.log);
+  return res.status(errorObj.status).json(errorObj.message);
+})
+
+app.post('/api/customDrink', (
     err: ServerError,
     req: Request,
     res: Response,
     next: NextFunction
   ): Response => {
     const defaultErr: ServerError = {
-      log: 'Express error handler caught unknown middleware error',
+      log: 'Error in adding custom drink',
       status: 400,
       message: { err: 'An error occurred' },
     };
