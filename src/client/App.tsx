@@ -1,11 +1,14 @@
 import React from 'react';
-import {Button} from '@mui/material';
+import Searchbar from './component/Searchbar'
 
-const App = () => {
+const App: React.FC = () => {
+  
   return (
-    <Button>
-      Hello from App.tsx
-    </Button>
+    <div>
+      <div>Hello from App.tsx</div>
+      <Searchbar/>
+
+    </div>
   )
 }
 
