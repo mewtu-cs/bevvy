@@ -12,7 +12,7 @@ interface Props{
 const DrinksCard: React.FC<Props> = (props) => {
     const {strDrink, strDrinkThumb, idDrink} = props.drinkDetails; 
     const url = `https://www.thecocktaildb.com/drink/${idDrink}`
-
+  
   return (
     <div className='card'>
         <h2>{strDrink}</h2>
