@@ -39,11 +39,12 @@ CREATE TABLE public.users (
 CREATE TABLE public.drinks (
   "_id" serial NOT NULL,
   "users_id" bigint NOT NULL,
-  "name" varchar NOT NULL,
-  "alcoholic" varchar NOT NULL,
-  "photourl" varchar NOT NULL,
-  "ingredients" varchar NOT NULL,
-  "measurements" varchar NOT NULL,
+  "drink_id" bigint NOT NULL,
+  "name" varchar,
+  "alcoholic" varchar,
+  "photourl" varchar,
+  "ingredients" varchar,
+  "measurements" varchar,
   CONSTRAINT "drinks_pk" PRIMARY KEY ("_id")
 ) WITH (OIDS = FALSE);
 
