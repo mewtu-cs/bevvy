@@ -14,5 +14,5 @@ module.exports = {
 		return pool.query(text, params, callback);
 	},
 };
-// users table: pk userid, username, pass, name, birthday
-// drinks table: fk userid, name of drink, pk drinkid, instructions, alcoholic y/n, ingredients (array), measurements (array), photo url
+
+//psql -d postgres://qvboqcjo:HxseI-OabOYTNDZMCyRbA_l-gScT4fF5@queenie.db.elephantsql.com/qvboqcjo -f src/data/bevvy_postgres_create.sql
