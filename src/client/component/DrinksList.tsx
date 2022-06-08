@@ -12,12 +12,11 @@ const DrinksList:React.FC<Props> = (props) => {
   let DrinksList = props.List.map((el:any)=><DrinksCard drinkDetails={el}/>)
 
   return (
-      <div>
-          <ul>
-            {DrinksList}
-          </ul>
-      </div>
-      
+    <div>
+        <ul>
+          {DrinksList}
+        </ul>
+    </div>
   )
 }
 
