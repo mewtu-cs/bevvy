@@ -1,5 +1,8 @@
 import React from 'react'
-import '../style/DrinksCard.css'
+import '../styles/DrinksCard.css'
+import Box from '@mui/material/Box'
+import Paper from '@mui/material/Paper'
+import Grid from '@mui/material/Grid'
 
 interface Props{
   drinkDetails: {
@@ -14,12 +17,13 @@ const DrinksCard: React.FC<Props> = (props) => {
     const url = `https://www.thecocktaildb.com/drink/${idDrink}`
   
   return (
-    <div className='card'>
+    <Box sx={{backgroundColor:'black'}}>
         <h2>{strDrink}</h2>
         <a href={url} target='_blank'>Ingredients</a>
-        <br></br>
+        
         <img className='drink-image' src={strDrinkThumb}/>
-    </div>
+
+    </Box>
   )
 }
 

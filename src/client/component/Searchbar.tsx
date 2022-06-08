@@ -4,6 +4,7 @@ import {Autocomplete, TextField} from '@mui/material'
 import Box from '@mui/material/Box'
 import Paper from '@mui/material/Paper'
 import Grid from '@mui/material/Grid'
+import { Typography } from '@mui/material';
 
 
 
@@ -27,23 +28,42 @@ const Searchbar: React.FC = () => {
         getDrinks(Search);
     },[Search])
   return (
-      <div>
-        <br></br>
-       <label >Search Cocktails</label>
-            <Autocomplete
-            value={Search}
-            onInputChange={(event, newInputValue:string) => {
-                setSearch(newInputValue);
-            }}
-            disablePortal
-            id="combo-box-demo"
-            options={Drinks}
-            sx={{ width: 300 }}
-            renderInput={(params) => <TextField {...params} label="Drinks" />}
-            ></Autocomplete>
+    <Box sx={{ flexGrow: 1 }}>
+    <Grid container spacing={2} >
+      <Grid item xs={8}>
+          <Typography  sx={{paddingTop:15}}>Search Cocktails</Typography>
+      </Grid>
+      <Grid item xs={4}>
+      </Grid>
+      <Grid item xs={4}>
+          <Autocomplete
+          value={Search}
+          onInputChange={(event, newInputValue:string) => {
+              setSearch(newInputValue);
+          }}
+          disablePortal
+          id="combo-box-demo"
+          options={Drinks}
+          sx={{ width: 300 }}
+          renderInput={(params) => <TextField {...params} label="Drinks" />}
+          ></Autocomplete>
+      </Grid>
+      <Grid item xs={8}>
+
+      </Grid>
+      <Grid item xs={4}>
         <DrinksList key='drinkslist' List={List}/>
-        
-      </div>
+      </Grid>
+    </Grid>
+  </Box>
+    //   <div>
+    //   <br></br>
+    //  <label >Search Cocktails</label>
+
+    //   <DrinksList key='drinkslist' List={List}/>
+      
+    // </div>
+
   )
 }
 

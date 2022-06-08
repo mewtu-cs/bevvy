@@ -5,7 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { green, orange, purple } from '@mui/material/colors';
+import {  orange, purple } from '@mui/material/colors';
 
 const outerTheme = createTheme({
   palette: {
@@ -20,22 +20,24 @@ const innerTheme = createTheme({
     primary: {
       main: purple[100],
     },
+    secondary: {
+      main: orange[500],
+    },
+
   },
 });
-
-
 
 export default function ButtonAppBar() {
   
   return (
     <ThemeProvider theme={innerTheme}>
             <Box sx={{ flexGrow: 1 }} bgcolor="primary.main">
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1, fontWeight: 'bold' }}>
             Bevvy
           </Typography>
-          <Button color= "primary" href='/Login'>Login</Button>
+          <Button color= "inherit" href='/Login' sx={{ fontWeight: 'bold' }}>Login</Button>
         </Toolbar>
       </AppBar>
     </Box>
