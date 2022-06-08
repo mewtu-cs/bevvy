@@ -28,7 +28,6 @@ const innerTheme = createTheme({
 });
 
 export default function ButtonAppBar() {
-  
   return (
     <ThemeProvider theme={innerTheme}>
             <Box sx={{ flexGrow: 1 }} bgcolor="primary.main">
@@ -37,7 +36,7 @@ export default function ButtonAppBar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1, fontWeight: 'bold' }}>
             Bevvy
           </Typography>
-          <Button color= "inherit" href='/Login' sx={{ fontWeight: 'bold' }}>Login</Button>
+          <Button color= "inherit" href='/' sx={{ fontWeight: 'bold' }}>Login</Button>
         </Toolbar>
       </AppBar>
     </Box>
