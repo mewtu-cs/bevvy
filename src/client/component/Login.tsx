@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { useState, useEffect } from 'react';
+
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -15,30 +17,37 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import '../styles/Login.css'
 
 
-function Copyright(props: any) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
 
 const theme = createTheme();
 
 export default function SignInSide() {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+  const [username, setUsername] = useState<any>('');
+  const [password, setPassword] = useState<any>('');
+  // const [UserInfo, setUserInfo] = useState({})
+  // const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  //   event.preventDefault();
+  //   const data = new FormData(event.currentTarget);
+  //   if(data.get('email')){
+  //     setUsername(data.get('email'))
+  //   }
+  //   console.log({
+  //     email: data.get('email'),
+  //     password: data.get('password'),
+  //   });
+  // };
+
+  const handleLogin = () => {
+    fetch('api/login', {
+      method: 'POST',
+      body: JSON.stringify({
+        username: username,
+        password: password
+      }),
+      headers: { 'Content-Type': 'application/json' },
+    })
+    .then(res => res.json())
+    .then((res)=> console.log(res))
+  }
 
   return (
     <ThemeProvider theme={theme}>
@@ -76,18 +85,20 @@ export default function SignInSide() {
             <Typography component="h1" variant="h5">
             Login
             </Typography>
-            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+            <Box component="form" noValidate sx={{ mt: 1 }}>
               <TextField
+                onChange={(e)=>setUsername(e.target.value)}
                 margin="normal"
                 required
                 fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
+                id="username"
+                label="Username"
+                name="username"
+                autoComplete="username"
                 autoFocus
               />
               <TextField
+                onChange={(e)=>setPassword(e.target.value)}
                 margin="normal"
                 required
                 fullWidth
